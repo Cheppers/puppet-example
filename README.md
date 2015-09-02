@@ -13,3 +13,5 @@ To make Puppet execute the modifications on your system type:
 ```
 sudo ./install.sh
 ```
+
+Note: This will replace your system php with php 5.6 from brew. Your old php will live under the name php-orig in /usr/bin.

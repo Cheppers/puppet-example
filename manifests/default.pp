@@ -52,8 +52,11 @@ node default {
     content => "Test file content.",
   }
 
+  # Replace system php with the brewed one.
+  # Creates a fallback symlink at the original location.
+  # (Hard-coded scripts might fail)
   exec {'move old php':
-    command => '/bin/mv /usr/bin/php /usr/bin/php-orig',
+    command => '/bin/mv /usr/bin/php /usr/bin/php-orig && /bin/ln -s /usr/local/bin/php /usr/bin/php',
     path => '/usr/bin',
     onlyif => '/bin/test -e /usr/bin/php'
   }
